@@ -8,8 +8,8 @@ A responsive, full-stack task management application featuring JWT authenticatio
 
 | Resource | URL |
 | :--- | :--- |
-| **GitHub Repository** | `https://github.com/<your-username>/task-manager-fullstack` |
-| **Live Frontend (Vercel)** | `https://<your-vercel-app>.vercel.app` |
+| **GitHub Repository** | `https://github.com/willy-peters/task-manager-fullstack` |
+| **Live Frontend (Vercel)** | `https://task-manager-fullstack-gamma-indol.vercel.app` |
 | **Live Backend API (Render)** | https://task-api-yhl4.onrender.com |
 | **Swagger / OpenAPI Docs** | https://task-api-yhl4.onrender.com/api-docs |
 
