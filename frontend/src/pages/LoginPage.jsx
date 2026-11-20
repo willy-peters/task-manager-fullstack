@@ -85,19 +85,13 @@ export default function LoginPage() {
       <main className="relative z-10 w-full max-w-md bg-surface-container-lowest rounded-xl p-space-lg sm:p-10 shadow-level1 border border-outline-variant/30">
         <div className="flex flex-col w-full space-y-space-md">
           {/* Brand Header (no logo, just Task Manager) */}
-          <div className="flex flex-col items-center text-center space-y-space-xs pt-space-xs">
+          <div className="flex flex-col items-center text-center pt-space-xs">
             <span className="text-headline-md text-on-surface tracking-tight">Task Manager</span>
-            <p className="text-label-sm uppercase text-outline tracking-widest font-semibold">
-              Workspace Portal
-            </p>
           </div>
 
           {/* Centered Welcome Header */}
-          <div className="flex flex-col items-center text-center space-y-1">
+          <div className="flex flex-col items-center text-center">
             <h1 className="text-headline-lg text-on-surface">Sign in to your account</h1>
-            <p className="text-body-md text-on-surface-variant">
-              Enter your credentials to access your task board.
-            </p>
           </div>
 
           {/* Logged Out Success Message */}

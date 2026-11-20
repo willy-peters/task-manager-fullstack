@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { STATUS_OPTIONS, getStatusMeta } from '../../utils/formatters.js';
+import { STATUS_OPTIONS } from '../../utils/formatters.js';
 
 export default function TaskModal({
   isOpen,
@@ -47,7 +47,6 @@ export default function TaskModal({
 
   const trimmedTitle = title.trim();
   const isTitleValid = trimmedTitle.length >= 3 && trimmedTitle.length <= 100;
-  const activeStatusMeta = getStatusMeta(status);
 
   const validate = () => {
     const errors = {};
@@ -111,16 +110,9 @@ export default function TaskModal({
                 {isEdit ? 'edit_note' : 'add_task'}
               </span>
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h2 id="task-modal-title" className="text-headline-md text-on-surface">
-                  {isEdit ? 'Edit Task' : 'Create New Task'}
-                </h2>
-                <span className="hidden sm:inline-block px-2 py-0.5 rounded-full text-label-sm bg-surface-container-high text-on-surface-variant font-mono">
-                  {isEdit ? `TASK-${String(task._id).slice(-6).toUpperCase()}` : 'DRAFT'}
-                </span>
-              </div>
-            </div>
+            <h2 id="task-modal-title" className="text-headline-md text-on-surface">
+              {isEdit ? 'Edit Task' : 'Create New Task'}
+            </h2>
           </div>
 
           <button
@@ -258,15 +250,11 @@ export default function TaskModal({
                 );
               })}
             </div>
-            <p className="text-body-sm text-on-surface-variant flex items-center gap-1 pt-0.5">
-              <span className="material-symbols-outlined text-[14px]">{activeStatusMeta.icon}</span>
-              <span>{activeStatusMeta.hint}</span>
-            </p>
           </div>
         </form>
 
-        {/* Sticky Footer */}
-        <div className="px-gutter-sm sm:px-space-lg py-space-md bg-surface-container-lowest border-t border-surface-container-low pb-safe flex items-center justify-end gap-space-sm">
+        {/* Sticky Footer with explicit bottom padding */}
+        <div className="px-gutter-sm sm:px-space-lg pt-space-md pb-6 sm:pb-space-lg bg-surface-container-lowest border-t border-surface-container-low flex items-center justify-end gap-space-sm">
           <button
             type="button"
             disabled={isSaving}
