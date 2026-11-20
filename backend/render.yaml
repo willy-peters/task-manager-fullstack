@@ -1,0 +1,26 @@
+# Render Blueprint for the Task Manager API.
+# Render reads blueprints from the repo root by default; point "Blueprint file path"
+# at backend/render.yaml when creating the Blueprint, or create a Web Service manually
+# with the same settings (Root Directory: backend).
+services:
+  - type: web
+    name: task-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: MONGODB_URI
+        sync: false # set in the Render dashboard (MongoDB Atlas connection string)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: CORS_ORIGIN
+        value: "*" # tighten to your Vercel URL, e.g. https://task-manager.vercel.app
